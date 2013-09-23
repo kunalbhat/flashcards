@@ -3,9 +3,9 @@
   <head>
     <meta name='viewport' content='initial-scale = 1.0,maximum-scale = 1.0' />
     <title>Flashcard</title>
-    <link rel='stylesheet' href='style.css' />
+    <link rel='stylesheet' href='assets/stylesheets/style.css' />
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
-    <script src='words.json'></script>
+    <script src='db/words.json'></script>
     <script>
       function shuffle(o){ //v1.0
         for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
@@ -23,17 +23,15 @@
       for(i=0; i<20; i++) {
         group.push(terms[i]);
       }
-
-      console.log(group);
-
     </script>
   </head>
   <body>
-    <div class='card'>
+    <div id='card' class='card'>
       <h3 class='word'></h3>
       <p class='definition'></p>
     </div>
-    <span class='next'>Next Word</span>
+    <p id='pagination' class='pagination'><span>1</span>/20</p>
+    <span id='next' class='button'>Next Word</span>
 
   </body>
   <script type='text/javascript'>
@@ -44,6 +42,8 @@
       var generateWord = function(currentIndex) {
         termWord = group[currentIndex].word;
         termDefinition = group[currentIndex].definition;
+
+        $('#pagination span').text(currentIndex + 1);
 
         $('.word').text(termWord);
         $('.definition').text(termDefinition);
@@ -56,19 +56,21 @@
           currentIndex = index;
         }
 
+        $('#pagination span').text(currentIndex + 1);
+
         generateWord(currentIndex);
       }
 
       generateWord(index);
 
-      $('.next').on('click', function(){
+      $('#next').on('click', function(){
         nextWord();
       });
-    });
 
-    $('.card').on('click', function(event){
-      $('.word').toggle();
-      $('.definition').toggle();
+      $('#card').on('click', function(event){
+        $('.word').toggle();
+        $('.definition').toggle();
+      });
     });
   </script>
 </html>

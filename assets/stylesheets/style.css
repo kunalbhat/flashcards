@@ -79,4 +79,11 @@ body {
 .button {
   background: #efefef;
   display: inline-block;
+  float: left;
+  padding: 15px;
+}
+
+.pagination {
+  float: right;
+  padding: 15px;
 }
