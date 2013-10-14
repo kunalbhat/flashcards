@@ -12,8 +12,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -62,14 +62,20 @@ body {
 
 .card {
   background: #f5f7f9;
-  height: 480px;
+  display: table-cell;
+  height: 568px;
   overflow: hidden;
+  position: relative;
+  vertical-align: middle;
   text-align: center;
   width: 320px;
 }
 
 .card h3, .card p {
   font-size: 36px;
+  font-weight: 300;
+  margin: 0 auto;
+  width: 80%;
 }
 
 .card p {
@@ -77,13 +83,79 @@ body {
 }
 
 .button {
-  background: #efefef;
+  color: white;
+  cursor: pointer;
   display: inline-block;
   float: left;
-  padding: 15px;
 }
 
 .pagination {
+  color: white;
   float: right;
-  padding: 15px;
+  display: inline-block;
+}
+
+#words {
+  position: absolute;
+  right: 20px;
+  text-align: right;
+  top: 0;
+}
+
+#words .active {
+  color: blue;
+}
+
+.complete {
+  text-decoration: line-through;
+}
+
+.input {
+  display: inline-block;
+  float: left;
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+.checkbox {
+  background: white;
+  border: 3px solid #333;
+  border-radius: 50%;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
+
+.checkbox.checked {
+  background: blue;
+}
+
+#hidden-checkbox {
+ display: none;
+}
+
+nav, footer {
+  background: black;
+  color: white;
+  display: table-cell;
+  height: 48px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  vertical-align: middle;
+  width: 100%;
+}
+
+nav {
+  top: 0;
+}
+
+footer {
+  bottom: 0;
+}
+
+#flip-card {
+  color: white;
+  float: right;
+  cursor: pointer;
 }
